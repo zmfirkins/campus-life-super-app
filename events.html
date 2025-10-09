@@ -27,9 +27,36 @@
   </nav>
 
   <main class="container my-5">
-    <h1 class="text-center mb-4">Upcoming Campus Events</h1>
+  <h1 class="text-center mb-4">Upcoming Campus Events</h1>
 
-    <div class="row g-4">
+  <!-- Calendar -->
+  <div class="table-responsive mb-4">
+    <table class="table table-bordered text-center">
+      <thead class="table-primary">
+        <tr>
+          <th>Sunday</th>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+          <th>Saturday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td><td></td><td></td><td></td><td></td><td>Music Festival</td><td>Hackathon</td>
+        </tr>
+        <tr>
+          <td>Art Show</td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <!-- add more rows for the month as needed -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Event Cards -->
+     <div class="row g-4">
       <div class="col-md-4">
         <div class="card h-100">
           <img src="https://placehold.co/400x250?text=Music+Festival" class="card-img-top" alt="Event 1">
@@ -63,7 +90,9 @@
         </div>
       </div>
     </div>
-  </main>
+  </div>
+</main>
+
 
   <footer class="text-center py-3 bg-light mt-auto">
     <p class="mb-0">© 2025 Campus Life App | Built by Zoie Firkins</p>
