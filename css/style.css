@@ -9,11 +9,26 @@ body {
   padding: 0.75rem 1.25rem;
 }
 
+
+#campusCarousel {
+  max-width: 900px; 
+  margin: 0 auto;  
+}
+
+
+.carousel-inner img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+
 .hero {
-  background-color: #0d6efd; 
+  background-color: #0d6efd;
   color: white;
   text-align: center;
-  height: 40vh; 
+  height: 35vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,4 +45,10 @@ footer {
 
 .card:hover {
   transform: translateY(-5px);
+}
+/* Make it smaller on mobile */
+@media (max-width: 768px) {
+  .carousel-inner img {
+    height: 250px;
+  }
 }
