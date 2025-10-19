@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Campus Life | Community</title>
+  <meta name="description" content="Connect with fellow students, share updates, and find study groups on the Campus Life community board." />
+  <title>Campus Life | Community Board</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm" aria-label="Main navigation">
     <div class="container">
       <a class="navbar-brand fw-bold" href="index.html">Campus Life</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -19,44 +21,95 @@
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
           <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
-          <li class="nav-item"><a class="nav-link active" href="community.html">Community</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="community.html">Community</a></li>
         </ul>
       </div>
     </div>
   </nav>
-<!-- Community Board -->
+
+  <!-- Main content -->
   <main class="container my-5">
     <h1 class="text-center mb-4">Community Board</h1>
+    <p class="text-center text-muted mb-4">Share updates, find study groups, and connect with fellow students</p>
 
-    <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Looking for Study Buddies in IT 101</h5>
-          <small>2 hours ago</small>
+    <!-- Community Posts Section -->
+    <section aria-labelledby="posts-heading">
+      <h2 id="posts-heading" class="visually-hidden">Recent Community Posts</h2>
+      <div class="list-group mb-4">
+        <!-- Post 1: Study Group -->
+        <article class="list-group-item list-group-item-action flex-column align-items-start community-post">
+          <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1 h5">Looking for Study Buddies in IT 101</h3>
+            <small><time datetime="2025-10-19T16:00">2 hours ago</time></small>
+          </div>
+          <p class="mb-1">Hey everyone! I'm Zoie and I'm trying to form a small study group for our midterm prep. Anyone interested in meeting weekly?</p>
+          <footer class="small">
+            Reply below or meet in the library café! 
+            <span class="text-muted">Posted by @ZoieCampus</span>
+          </footer>
+        </article>
+
+        <!-- Post 2: Lost & Found -->
+        <article class="list-group-item list-group-item-action flex-column align-items-start community-post">
+          <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1 h5">Lost &amp; Found: Blue Hydroflask</h3>
+            <small><time datetime="2025-10-19T13:00">5 hours ago</time></small>
+          </div>
+          <p class="mb-1">Found near the art building bench. Has stickers on it. DM me if it's yours - I'll need you to describe the stickers to verify!</p>
+          <footer class="small text-muted">
+            Posted by @SamParker
+          </footer>
+        </article>
+
+        <!-- Post 3: Event Promotion -->
+        <article class="list-group-item list-group-item-action flex-column align-items-start community-post">
+          <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1 h5">Free Pizza at Hackathon! 🍕</h3>
+            <small><time datetime="2025-10-19T10:00">8 hours ago</time></small>
+          </div>
+          <p class="mb-1">Reminder: The 24-hour hackathon starts tomorrow at 9 AM! We'll have free pizza, energy drinks, and amazing prizes. Still time to register!</p>
+          <footer class="small text-muted">
+            Posted by CS Club | <a href="events.html" class="text-decoration-none">View event details</a>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- Post Creation Section -->
+    <section aria-labelledby="create-post-heading" class="mt-4">
+      <h2 id="create-post-heading" class="h4">Share Something with the Community</h2>
+      <form id="postForm" onsubmit="return false;">
+        <div class="mb-3">
+          <label for="postContent" class="form-label visually-hidden">Post content</label>
+          <textarea 
+            class="form-control mb-2" 
+            id="postContent"
+            placeholder="Share an update, ask a question, or start a discussion..."
+            rows="3"
+            aria-label="Write your community post"
+            aria-describedby="charCounter"
+          ></textarea>
+          <small id="charCounter" class="form-text text-muted">280 characters maximum</small>
         </div>
-        <p class="mb-1">Hey everyone! I’m Zoie and I’m trying to form a small study group for our midterm prep.</p>
-        <small>Reply below or meet in the library café!</small>
-      </a>
+        <button type="submit" class="btn btn-primary" aria-label="Post to community board">Post to Board</button>
+      </form>
+    </section>
 
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Lost & Found: Blue Hydroflask</h5>
-          <small>5 hours ago</small>
-        </div>
-        <p class="mb-1">Found near the art building bench. DM me if it’s yours!</p>
-        <small>@SamParker</small>
-      </a>
-    </div>
-
-    <div class="mt-4">
-      <h4>Post Something</h4>
-      <textarea class="form-control mb-2" placeholder="Share an update..."></textarea>
-      <button class="btn btn-primary">Post</button>
-    </div>
+    <!-- Community Guidelines -->
+    <aside class="mt-5 p-3 bg-light rounded" aria-labelledby="guidelines-heading">
+      <h2 id="guidelines-heading" class="h5">Community Guidelines</h2>
+      <ul class="small mb-0">
+        <li>Be respectful and inclusive to all community members</li>
+        <li>No spam, advertising, or self-promotion without permission</li>
+        <li>Keep posts relevant to campus life and student interests</li>
+        <li>Report inappropriate content to campus moderators</li>
+      </ul>
+    </aside>
   </main>
 
+  <!-- Footer -->
   <footer class="text-center py-3 bg-light mt-auto">
-    <p class="mb-0">© 2025 Campus Life App | Built by Zoie Firkins</p>
+    <p class="mb-0">&copy; 2025 Campus Life App | Built by Zoie Firkins</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

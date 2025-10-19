@@ -1,54 +1,406 @@
+/* 
+ * Campus Life Super App - Main Stylesheet
+ * Author: Zoie Firkins
+ * Description: Responsive styling with Bootstrap integration and custom enhancements
+ */
+
+/* ===== BASE STYLES ===== */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  padding-top: 60px; /* offset for fixed navbar */
+  padding-top: 80px; /* Increased offset for fixed navbar */
   background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+/* Ensure main content starts below navbar */
+main {
+  margin-top: 0;
+}
+
+/* Extra padding for hero section to ensure it's not cut off */
+.hero {
+  margin-top: -20px; /* Slight negative margin to bring hero closer to navbar */
+}
+
+/* ===== COLOR VARIABLES ===== */
+:root {
+  --primary-color: #2e39b4; /* Blue*/
+  --secondary-color: #F1BE48; /* Gold */
+  --dark-accent: #1f1f1f;
+  --light-bg: #f8f9fa;
+}
+
+/* ===== NAVIGATION STYLES ===== */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+  color: var(--primary-color) !important;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+.nav-link.active {
+  color: var(--primary-color) !important;
+  font-weight: 600;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #2e39b4 100%);
+  color: white;
+  text-align: center;
+  min-height: 35vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h100v100H0z" fill="none"/><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>') repeat;
+  opacity: 0.3;
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero .lead {
+  position: relative;
+  z-index: 1;
+  font-size: 1.25rem;
+}
+
+/* ===== BUTTON STYLES ===== */
+.btn-primary {
+  background-color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2e39b4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ===== LIST GROUP STYLES ===== */
 .list-group-item {
   font-size: 1rem;
   padding: 0.75rem 1.25rem;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
 }
 
+.list-group-item:hover {
+  border-left-color: var(--primary-color);
+  background-color: #fff5f5;
+}
 
+.list-group-item strong {
+  color: var(--primary-color);
+}
+
+/* ===== CAROUSEL STYLES ===== */
 #campusCarousel {
   max-width: 900px; 
   margin: 0 auto;  
 }
-
 
 .carousel-inner img {
   height: 400px;
   width: 100%;
   object-fit: cover;
   border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-
-.hero {
-  background-color: #0d6efd;
-  color: white;
-  text-align: center;
-  height: 35vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #2e39b4;
+  border-radius: 50%;
+  padding: 1.5rem;
 }
 
-footer {
-  background-color: #f1f1f1;
-}
-
+/* ===== CARD STYLES ===== */
 .card {
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
-/* Make it smaller on mobile */
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.card-title {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.card-footer {
+  background-color: var(--light-bg);
+  border-top: 2px solid var(--secondary-color);
+}
+
+/* ===== CALENDAR STYLES ===== */
+.table-primary {
+  background-color: var(--primary-color) !important;
+  color: white;
+}
+
+.table-bordered td {
+  vertical-align: top;
+  min-height: 100px;
+  height: 100px;
+  padding: 0.5rem;
+  font-weight: 500;
+  position: relative;
+  cursor: default;
+  transition: all 0.2s ease;
+}
+
+.table-bordered td:hover {
+  box-shadow: inset 0 0 0 2px var(--primary-color);
+}
+
+/* Calendar date numbers */
+.date-number {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #666;
+  margin-bottom: 0.25rem;
+  text-align: left;
+}
+
+.date-number.today {
+  background-color: var(--primary-color);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+}
+
+/* Calendar cells with events */
+.table-bordered td:has(.event-link) {
+  background-color: #fff8e1;
+  cursor: pointer;
+}
+
+.table-bordered td .event-link {
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: left;
+  width: 100%;
+  display: block;
+  margin-top: 0.25rem;
+  line-height: 1.2;
+}
+
+.table-bordered td .event-link:hover {
+  color: var(--secondary-color);
+  text-decoration: underline !important;
+  transform: translateX(2px);
+}
+
+.event-time {
+  font-size: 0.7rem;
+  color: #666;
+  margin-top: 0.125rem;
+  font-weight: 500;
+}
+
+/* Calendar navigation buttons */
+#calendarNav {
+  margin-top: 1rem;
+}
+
+/* Empty calendar cells */
+.table-bordered td:empty,
+.table-bordered td:has(:only-child:empty) {
+  background-color: #f8f9fa;
+}
+
+/* ===== COMMUNITY BOARD STYLES ===== */
+.community-post {
+  border-left: 4px solid var(--secondary-color);
+}
+
+.community-post:hover {
+  background-color: #fffbf0;
+  border-left-color: var(--primary-color);
+}
+
+/* ===== MAP STYLES ===== */
+.input-group {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.input-group .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem #2e39b4;
+}
+
+/* ===== FOOTER STYLES ===== */
+footer {
+  background: linear-gradient(to right, var(--dark-accent), #333);
+  color: white;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0;
+  color: white;
+}
+
+/* ===== LOADING ANIMATION ===== */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #2e39b4;
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus Styles for Accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* ===== RESPONSIVE DESIGN - TABLET ===== */
+@media (max-width: 992px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .carousel-inner img {
+    height: 300px;
+  }
+}
+
+/* ===== RESPONSIVE DESIGN - MOBILE ===== */
 @media (max-width: 768px) {
+  body {
+    padding-top: 70px; /* Slightly more padding on mobile */
+  }
+  
+  .hero {
+    min-height: 30vh;
+    margin-top: -10px; /* Less negative margin on mobile */
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero .lead {
+    font-size: 1rem;
+  }
+  
   .carousel-inner img {
     height: 250px;
+  }
+  
+  .card-img-top {
+    height: 180px;
+  }
+  
+  .table-bordered td {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    min-height: 80px;
+    height: 80px;
+  }
+  
+  .date-number {
+    font-size: 0.875rem;
+  }
+  
+  .event-link {
+    font-size: 0.7rem !important;
+  }
+  
+  .event-time {
+    font-size: 0.65rem;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .navbar,
+  .btn,
+  footer {
+    display: none;
+  }
+  
+  body {
+    padding-top: 0;
   }
 }
