@@ -29,7 +29,7 @@ main {
 :root {
   --primary-color: #2e39b4; /* Blue*/
   --secondary-color: #F1BE48; /* Gold */
-  --dark-accent: #1f1f1f;
+  --dark-accent: #2a62c9;
   --light-bg: #f8f9fa;
 }
 
@@ -287,7 +287,7 @@ main {
 
 /* ===== FOOTER STYLES ===== */
 footer {
-  background: linear-gradient(to right, var(--dark-accent), #333);
+  background: linear-gradient(to right, var(--dark-accent), #2e39b4);
   color: white;
   margin-top: auto;
 }
